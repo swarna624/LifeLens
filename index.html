@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeLens | Autonomous Emergency Response System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Material Icons for UI elements -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="logo-section">
+                <span class="material-icons-round logo-icon">health_and_safety</span>
+                <div>
+                    <h1>LifeLens</h1>
+                    <p class="subtitle">Autonomous Multi-Agent Emergency Response</p>
+                </div>
+            </div>
+            <div class="system-status">
+                <div class="status-indicator active">
+                    <span class="dot"></span>
+                    System Online
+                </div>
+                <div class="clock" id="system-clock">00:00:00</div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-grid">
+
+            <!-- Left Column: Agent Monitor -->
+            <section class="agent-monitor glass-panel">
+                <h2><span class="material-icons-round">smart_toy</span> Agent Neural Network</h2>
+                <div class="agents-list">
+                    <!-- Agent Cards will be injected here by JS -->
+                </div>
+
+                <div class="learning-metrics">
+                    <h3>Continuous Learning Metrics</h3>
+                    <div class="metric-row">
+                        <span>Optimization Rate</span>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 0%" id="opt-rate"></div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <span>False Alarm Reduction</span>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 0%" id="fa-rate"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Center Column: City Map Simulation -->
+            <section class="city-simulation glass-panel">
+                <div class="map-header">
+                    <h2><span class="material-icons-round">map</span> Live City Feed</h2>
+                    <div class="map-controls">
+                        <button id="toggle-sim" class="btn-primary">
+                            <span class="material-icons-round">play_arrow</span> Start Simulation
+                        </button>
+                    </div>
+                </div>
+                <div class="map-container" id="city-map">
+                    <!-- Canvas layer for rendering the city and agents -->
+                    <canvas id="simulation-canvas"></canvas>
+                    <div class="map-overlay" id="map-overlay">
+                        <!-- Tooltips or status markers -->
+                    </div>
+                </div>
+                <div class="map-legend">
+                    <div class="legend-item"><span class="dot hospital"></span> Hospital</div>
+                    <div class="legend-item"><span class="dot ambulance"></span> Ambulance</div>
+                    <div class="legend-item"><span class="dot emergency"></span> Incident</div>
+                </div>
+            </section>
+
+            <!-- Right Column: Live Logs & Response -->
+            <section class="command-center glass-panel">
+                <div class="tab-container">
+                    <button class="tab active" data-target="live-feed">Live Feed</button>
+                    <button class="tab" data-target="response-plan">Active Response</button>
+                </div>
+
+                <div id="live-feed" class="tab-content active">
+                    <ul class="event-log" id="event-log-list">
+                        <!-- Logs injected by JS -->
+                        <li class="log-entry system">
+                            <span class="time">System</span>
+                            <span class="msg">Initializing LifeLens Core...</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="response-plan" class="tab-content">
+                    <div class="empty-state" id="response-empty">
+                        <span class="material-icons-round">radar</span>
+                        <p>Scanning for critical events...</p>
+                    </div>
+                    <div id="active-incidents-list" class="active-incidents-list">
+                        <!-- Incident cards will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
